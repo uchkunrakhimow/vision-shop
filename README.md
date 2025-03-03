@@ -26,7 +26,7 @@ VisionSHOP is an AI-powered image analysis and product description generator for
 
 - Express.js with TypeScript
 - Google Cloud Vision API for image analysis
-- Anthropic Openai API for intelligent product descriptions
+- Openai API for intelligent product descriptions
 - File upload handling with Express FileUpload
 
 ## Getting Started
@@ -35,7 +35,7 @@ VisionSHOP is an AI-powered image analysis and product description generator for
 
 - Node.js (v14.0.0 or higher)
 - Google Cloud account with Vision API enabled
-- Anthropic API key
+- Openai API key
 
 ### Installation
 
@@ -116,7 +116,7 @@ npm start
 
 1. **Upload Image**: User uploads an image through the interface.
 2. **Image Analysis**: The image is sent to Google Cloud Vision API, which returns labels and annotations.
-3. **Description Generation**: The labels are processed by Anthropic Openai API to generate SEO-friendly product descriptions.
+3. **Description Generation**: The labels are processed by Openai API to generate SEO-friendly product descriptions.
 4. **Result Display**: The user receives both the raw analysis and the formatted description, ready to use for e-commerce.
 
 ## Project Structure
@@ -163,14 +163,4 @@ To change what types of analysis are performed on images, modify the Vision API 
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Acknowledgments
-
-- Google Cloud Vision API for image analysis capabilities
-- Anthropic for the Claude AI API
-- All contributors to this project
-
----
-
-For questions or support, please open an issue on the GitHub repository.
+MIT License
