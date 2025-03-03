@@ -1,6 +1,6 @@
 # VisionSHOP
 
-VisionSHOP is an AI-powered image analysis and product description generator for e-commerce platforms. This application allows users to upload images, analyzes them using Google Cloud Vision API, and generates comprehensive product descriptions using Anthropic Claude AI.
+VisionSHOP is an AI-powered image analysis and product description generator for e-commerce platforms. This application allows users to upload images, analyzes them using Google Cloud Vision API, and generates comprehensive product descriptions using Openai GPT.
 
 ![VisionSHOP Demo](demo.png)
 
@@ -26,7 +26,7 @@ VisionSHOP is an AI-powered image analysis and product description generator for
 
 - Express.js with TypeScript
 - Google Cloud Vision API for image analysis
-- Anthropic Claude API for intelligent product descriptions
+- Anthropic Openai API for intelligent product descriptions
 - File upload handling with Express FileUpload
 
 ## Getting Started
@@ -57,8 +57,8 @@ npm install
 
 ```
 PORT=5000
-GOOGLE_APPLICATION_CREDENTIALS=./google-credentials.json
-CLAUDE_API_KEY=your_claude_api_key
+GOOGLE_APPLICATION_CREDENTIALS=
+OPENAI_API_KEY=
 ```
 
 4. Place your Google Cloud credentials JSON file in the server directory.
@@ -116,7 +116,7 @@ npm start
 
 1. **Upload Image**: User uploads an image through the interface.
 2. **Image Analysis**: The image is sent to Google Cloud Vision API, which returns labels and annotations.
-3. **Description Generation**: The labels are processed by Anthropic Claude API to generate SEO-friendly product descriptions.
+3. **Description Generation**: The labels are processed by Anthropic Openai API to generate SEO-friendly product descriptions.
 4. **Result Display**: The user receives both the raw analysis and the formatted description, ready to use for e-commerce.
 
 ## Project Structure
@@ -147,7 +147,7 @@ vision-shop/
 
 ### Changing the AI Prompt
 
-To modify how descriptions are generated, edit the prompt in `server/src/services/claudeService.ts`.
+To modify how descriptions are generated, edit the prompt in `server/src/services/openaiService.ts`.
 
 ### Adjusting Vision API Parameters
 

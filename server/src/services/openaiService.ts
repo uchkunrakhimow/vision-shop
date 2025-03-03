@@ -1,10 +1,13 @@
-import axios from "axios";
+import OpenAI from "openai";
 import dotenv from "dotenv";
 
 dotenv.config();
 
-const CLAUDE_API_KEY = process.env.CLAUDE_API_KEY;
-const CLAUDE_API_URL = "https://api.anthropic.com/v1/messages";
+const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
+
+const openai = new OpenAI({
+  apiKey: OPENAI_API_KEY,
+});
 
 export const generateDescription = async (
   imageLabels: string
@@ -23,25 +26,15 @@ export const generateDescription = async (
       Please respond only in English.
     `;
 
-    const response = await axios.post(
-      CLAUDE_API_URL,
-      {
-        model: "claude-3-7-sonnet-20250219",
-        max_tokens: 1000,
-        messages: [{ role: "user", content: prompt }],
-      },
-      {
-        headers: {
-          "Content-Type": "application/json",
-          "x-api-key": CLAUDE_API_KEY,
-          "anthropic-version": "2023-06-01",
-        },
-      }
-    );
+    const response = await openai.chat.completions.create({
+      model: "gpt-4o",
+      messages: [{ role: "user", content: prompt }],
+      max_tokens: 1000,
+    });
 
-    return response.data.content[0].text;
+    return response.choices[0].message.content || "";
   } catch (error) {
-    console.error("Claude API error:", error);
+    console.error("OpenAI API error:", error);
     throw new Error("An error occurred while generating the description");
   }
 };

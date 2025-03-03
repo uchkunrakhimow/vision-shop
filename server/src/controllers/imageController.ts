@@ -1,7 +1,7 @@
 import type { NextFunction, Response } from "express";
 import { UploadedFile } from "express-fileupload";
 import { analyzeImage } from "../services/visionService";
-import { generateDescription } from "../services/claudeService";
+import { generateDescription } from "../services/openaiService";
 
 export const processImage = async (
   req: any,
